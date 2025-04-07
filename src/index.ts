@@ -16,14 +16,25 @@ function getHtml(): Response {
 function getGeo(request: Request): Response {
 	const country = request.cf?.country as string | null;
 	const countryFlag = country ? countryCodeToFlagEmoji(country) : null;
+
 	const data = {
 		country,
 		countryFlag,
+		city: request.cf?.city,
 		region: request.cf?.region,
-		timezone: request.cf?.timezone,
+		continent: request.cf?.continent,
+		regionCode: request.cf?.regionCode,
+		postalCode: request.cf?.postalCode,
+		metroCode: request.cf?.metroCode,
+
 		latitude: request.cf?.latitude,
 		longitude: request.cf?.longitude,
+		timezone: request.cf?.timezone,
+
+		colo: request.cf?.colo,
 		clientTcpRtt: request.cf?.clientTcpRtt,
+		asOrganization: request.cf?.asOrganization,
+
 		ip: request.headers.get('cf-connecting-ip'),
 	};
 
@@ -36,7 +47,6 @@ function getGeo(request: Request): Response {
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		console.log(request);
 		const acceptHeader = request.headers.get('Accept');
 
 		// Accept html
