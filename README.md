@@ -110,14 +110,26 @@ fetch('https://ip-geo.xj63.fun/', {
 });
 ```
 
-## 部署
+## ☁️ 部署
 
-推荐直接点击最上面的按钮一键部署，如果您想自定义和部署这个项目：
+### 一键部署
+
+推荐点击页面顶部的 [![部署到 Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/xj63/ip-geo) 按钮进行一键部署。Cloudflare 会引导你完成后续步骤。
+
+### 手动部署
+
+如果你希望自定义或手动部署：
 
 1. Fork 这个仓库
 2. 根据需要修改代码
-3. 使用 Wrangler 部署到您的 Cloudflare Workers 账户
+3. 部署到您的 Cloudflare Workers 账户
 
 ```bash
 npm run deploy
 ```
+
+## 🙏 致谢 (Acknowledgements)
+
+本项目的创建受到了以下优秀项目的启发，在此表示感谢：
+
+- [ccbikai/ip-api](https://github.com/ccbikai/ip-api)
