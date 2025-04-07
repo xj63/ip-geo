@@ -2,6 +2,7 @@
 import HOME_HTML from './index.html';
 
 import { DEFAULT_HEADERS } from './config';
+import { countryCodeToFlagEmoji } from './utils/countryFlag';
 
 function getHtml(): Response {
 	return new Response(HOME_HTML, {
