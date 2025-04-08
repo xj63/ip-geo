@@ -19,6 +19,7 @@ function getFavicon(): Response {
 		headers: {
 			...DEFAULT_HEADERS,
 			'Content-Type': 'image/svg+xml',
+			'Cache-Control': 'public, max-age=31536000', // one year
 		},
 	});
 }
