@@ -1,5 +1,6 @@
 // @ts-ignore
 import HOME_HTML from './site/index.html';
+import { FAVICON_SVG } from './site/favicon';
 
 import { DEFAULT_HEADERS } from './config';
 import { countryCodeToFlagEmoji } from './utils/countryFlag';
@@ -9,6 +10,15 @@ function getHtml(): Response {
 		headers: {
 			...DEFAULT_HEADERS,
 			'Content-Type': 'text/html',
+		},
+	});
+}
+
+function getFavicon(): Response {
+	return new Response(FAVICON_SVG, {
+		headers: {
+			...DEFAULT_HEADERS,
+			'Content-Type': 'image/svg+xml',
 		},
 	});
 }
@@ -47,6 +57,12 @@ function getGeo(request: Request): Response {
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
+		const url = new URL(request.url);
+
+		if (url.pathname === '/favicon.svg') {
+			return getFavicon();
+		}
+
 		const acceptHeader = request.headers.get('Accept');
 
 		// Accept html
