@@ -1,5 +1,5 @@
 // @ts-ignore
-import HOME_HTML from './index.html';
+import HOME_HTML from './site/index.html';
 
 import { DEFAULT_HEADERS } from './config';
 import { countryCodeToFlagEmoji } from './utils/countryFlag';
